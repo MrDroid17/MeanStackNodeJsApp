@@ -13,6 +13,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component'
 
+import { ValidateService } from './services/validate.service';
+import { FlashMessageModule } from 'angular-flash-message';
+
 const appRoutes : Routes = [
   { path:'', component: HomeComponent},
   { path:'register', component: RegisterComponent},
@@ -35,9 +38,10 @@ const appRoutes : Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FlashMessageModule
   ],
-  providers: [],
+  providers: [ValidateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
